@@ -1,8 +1,12 @@
-function sleep(valor) {
-  new Promise((resolve, reject) => {
-    setTimeout(() => resolve(valor), 3000);
-  }).then((valor) => {
-    console.log(valor);
-  });
-}
-sleep("Qualquer valor");
+const temporizado = () => {
+  const interval = setInterval(() => {
+    const dataAtual = new Date();
+    const dataFormatada = dataAtual.toLocaleTimeString("pt-BR");
+
+    console.log(dataAtual);
+  }, 1000);
+  setTimeout(() => {
+    clearInterval(interval);
+  }, 10000);
+};
+temporizado();
